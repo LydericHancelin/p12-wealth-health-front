@@ -1,0 +1,11 @@
+.awesomeTable {
+  display: grid;
+  grid-template-columns: repeat(var(--nbCols), auto);
+  gap: 2rem;
+  .sortedAsc::after {
+    content: url("../icons/chevron-up.svg");
+  }
+  .sortedDesc::after {
+    content: url("../icons/chevron-down.svg");
+  }
+}

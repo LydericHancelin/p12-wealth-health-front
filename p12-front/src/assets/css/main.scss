@@ -1,0 +1,14 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  input,
+  select {
+    margin-bottom: 1.5rem;
+  }
+}
