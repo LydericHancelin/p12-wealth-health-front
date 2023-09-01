@@ -1,0 +1,5 @@
+.awesomeTable {
+  display: grid;
+  grid-template-columns: repeat(var(--nbCols), auto);
+  gap: 2rem;
+}
