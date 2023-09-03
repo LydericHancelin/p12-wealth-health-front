@@ -11,6 +11,13 @@ import { useDispatch } from "react-redux";
 const Formular = () => {
   const dispatch = useDispatch();
   const stateArray = ["Alabama", "Arkansas", "California", "Colorado"];
+  const departmentArray = [
+    "Sales",
+    "Marketing",
+    "Engineering",
+    "Human Resources",
+    "Legal",
+  ];
   const [isOpen, setIsOpen] = useState(false);
 
   const [firstname, setFirstName] = useState("");
@@ -30,8 +37,8 @@ const Formular = () => {
       addEmployee({
         firstname,
         lastname,
-        birthdate,
-        startDate,
+        birthdate: birthdate.toLocaleDateString(),
+        startDate: startDate.toLocaleDateString(),
         street,
         city,
         state,
@@ -61,69 +68,62 @@ const Formular = () => {
         onChange={(e) => setLastName(e.target.value)}
       />
       <label htmlFor='birthdate'>Date of Birth</label>
-      <input
-        type='date'
-        name='birthdate'
-        id='birthdate'
-        value={birthdate}
-        onChange={(e) => setBirthdate(e.target.value)}
-      />
-      {/* <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-      /> */}
+      <DatePicker id='birthdate' selected={birthdate} onChange={setBirthdate} />
+
       <label htmlFor='startdate'>Start Date</label>
-      <input
-        type='date'
-        name='startdate'
-        id='startdate'
+      <DatePicker id='startdate' selected={startDate} onChange={setStartDate} />
+      {/* <input
+        type="date"
+        name="startdate"
+        id="startdate"
         value={startDate}
         onChange={(e) => setStartDate(e.target.value)}
-      />
-      <label htmlFor='street'>Street</label>
-      <input
-        type='text'
-        name='street'
-        id='street'
-        value={street}
-        onChange={(e) => setStreet(e.target.value)}
-      />
-      <label htmlFor='city'>City</label>
-      <input
-        type='text'
-        name='city'
-        id='city'
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-      />
-      <label htmlFor='state'>State</label>
-      <Select
-        options={stateArray}
-        value={state}
-        onChange={(e) => setState(e.target.value)}
-        id='state'
-      />
-      <label htmlFor='zipcode'>Zip Code</label>
-      <input
-        type='number'
-        name='zipcode'
-        id='zipcode'
-        value={zipcode}
-        onChange={(e) => setZipcode(e.target.value)}
-      />
+      /> */}
+      <fieldset>
+        <legend>Address</legend>
+        <label htmlFor='street'>Street</label>
+        <input
+          type='text'
+          name='street'
+          id='street'
+          value={street}
+          onChange={(e) => setStreet(e.target.value)}
+        />
+        <label htmlFor='city'>City</label>
+        <input
+          type='text'
+          name='city'
+          id='city'
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+        <label htmlFor='state'>State</label>
+        <Select
+          options={stateArray}
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+          title='Etat'
+          id='state'
+        />
+        <label htmlFor='zipcode'>Zip Code</label>
+        <input
+          type='number'
+          name='zipcode'
+          id='zipcode'
+          value={zipcode}
+          onChange={(e) => setZipcode(e.target.value)}
+        />
+      </fieldset>
+
       <label htmlFor='department'>Department</label>
-      <select
+      <Select
+        options={departmentArray}
         id='department'
         name='department'
         value={department}
         onChange={(e) => setDepartment(e.target.value)}
-      >
-        <option value='sales'>Sales</option>
-        <option value='marketing'>MARKETING</option>
-        <option value='engineering'>Engineering</option>
-        <option value='human-resources'>Human Resources</option>
-        <option value='legal'>Legal</option>
-      </select>
+        title='Département'
+      />
       <button type='submit'>Save</button>
       <Modal
         isOpen={isOpen}

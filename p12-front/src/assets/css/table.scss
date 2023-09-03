@@ -1,11 +1,37 @@
-.awesomeTable {
-  display: grid;
-  grid-template-columns: repeat(var(--nbCols), auto);
-  gap: 2rem;
-  .sortedAsc::after {
-    content: url("../icons/chevron-up.svg");
+.table {
+  .awesomeTable {
+    display: grid;
+    text-align: center;
+    span {
+      font-weight: bold;
+      padding: 1rem;
+      cursor: pointer;
+    }
+    p {
+      margin: 0;
+    }
+    grid-template-columns: repeat(var(--nbCols), auto);
+    .sortedAsc::after {
+      content: url("../icons/chevron-up.svg");
+    }
+    .sortedDesc::after {
+      content: url("../icons/chevron-down.svg");
+    }
   }
-  .sortedDesc::after {
-    content: url("../icons/chevron-down.svg");
+  .pages {
+    display: flex;
+    gap: 2rem;
+    .page {
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      line-height: 2rem;
+    }
+    .currentPage {
+      color: white;
+      background-color: black;
+      border-radius: 50%;
+    }
   }
 }

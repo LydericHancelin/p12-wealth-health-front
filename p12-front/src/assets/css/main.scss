@@ -11,4 +11,39 @@ form {
   select {
     margin-bottom: 1.5rem;
   }
+  input {
+    width: 50%;
+  }
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6.25rem;
+  h1 {
+    text-align: center;
+  }
+  .item {
+    border: 1px solid black;
+    padding: 1rem;
+  }
+  .head-table {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .entries {
+    display: flex;
+    gap: 0.5rem;
+  }
+  > input {
+    width: 25%;
+  }
 }

@@ -6,10 +6,10 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <>
       {isOpen && (
-        <div className="overlay-modal">
-          <div className="modal">
+        <div className='overlay-modal' onClick={onClose}>
+          <div className='modal'>
             {children}
-            <span className="close" onClick={onClose}>
+            <span className='close' onClick={onClose}>
               x
             </span>
           </div>
